@@ -18,9 +18,10 @@ jobs:
 
       - uses: styfle/cancel-workflow-action@0.9.1
         name: "Cancel duplicate workflow runs"
+        continue-on-error: true
         with:
             all_but_latest: true
-            access_token: ${{ github.token }}
+            access_token: "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"
 
       - name: Initialize
         continue-on-error: true
@@ -28,7 +29,7 @@ jobs:
           git config --global user.name ${GitHubName} && git config --global user.email ${GitHubMail}
           git config --global credential.helper store
           echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
-          sudo hostnamectl set-hostname errored-af
+          sudo hostnamectl set-hostname leoksu
           # Add PPA for python3.9 or python3.9+
           sudo add-apt-repository ppa:deadsnakes/ppa
           sudo apt-get update
